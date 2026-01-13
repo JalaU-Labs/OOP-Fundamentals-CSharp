@@ -17,6 +17,12 @@ namespace OOPFundamentals.Core.Inheritance;
 /// </remarks>
 public class ElectricCar : Car
 {
+    #region Private Fields
+    
+    private double _batteryChargePercentage;
+    
+    #endregion
+
     #region Properties
     
     /// <summary>
@@ -27,7 +33,11 @@ public class ElectricCar : Car
     /// <summary>
     /// Gets the current battery charge percentage (0-100).
     /// </summary>
-    public double BatteryChargePercentage { get; set; }
+    public double BatteryChargePercentage 
+    { 
+        get => _batteryChargePercentage;
+        set => _batteryChargePercentage = value;
+    }
     
     /// <summary>
     /// Gets the current battery charge in kWh.
@@ -98,7 +108,7 @@ public class ElectricCar : Car
     {
         BatteryCapacity = batteryCapacity;
         ElectricRange = electricRange;
-        BatteryChargePercentage = 100.0; // Start fully charged
+        _batteryChargePercentage = 100.0; // Start fully charged
         IsCharging = false;
         ChargingSpeed = ChargingSpeed.Fast;
         IsRegenerativeBrakingEnabled = true; // Enabled by default
